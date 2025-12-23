@@ -1,0 +1,13 @@
+module.exports = {
+  adminRole: "BOSS",
+  defaultHoldDuration: "3d",
+  logEnabled: true,
+
+  teams: {
+    A: { teamRole: "Team A", leaderRole: "Leader A" },
+    B: { teamRole: "Team B", leaderRole: "Leader B" },
+    C: { teamRole: "Team C", leaderRole: "Leader C" }
+  },
+
+  holdRole: "HOLD"
+};
