@@ -1,0 +1,27 @@
+const { SlashCommandBuilder, PermissionFlagsBits } = require("discord.js");
+const config = require("../config");
+
+module.exports = {
+  data: new SlashCommandBuilder()
+    .setName("A")
+    .setDescription("دعوة لاعب لفريقك")
+    .addUserOption(opt =>
+      opt.setName("user").setDescription("الشخص").setRequired(true)
+    ),
+
+  async execute(interaction) {
+    const member = interaction.member;
+    const user = interaction.options.getUser("user");
+
+    const team = Object.values(config.teams).find(t =>
+      member.roles.cache.some(r => r.name === t.leaderRole)
+    );
+
+    if (!team)
+      return interaction.reply({ content: "❌ انت مو قائد فريق", ephemeral: true });
+
+    await user.send(`👑 قائد فريقك دعاك للانضمام\nاكتب ✅ لقبول أو ❌ للرفض`);
+
+    interaction.reply({ content: "📨 تم إرسال الدعوة", ephemeral: true });
+  }
+};
