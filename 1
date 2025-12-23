@@ -1,0 +1,27 @@
+discord-team-bot/
+│
+├─ src/
+│  ├─ index.js              # تشغيل البوت
+│  ├─ config.js             # الإعدادات العامة (قابلة للتغيير من اللوحة)
+│  │
+│  ├─ database/
+│  │  └─ database.js        # SQLite
+│  │
+│  ├─ commands/
+│  │  ├─ panel.js           # لوحة التحكم
+│  │  ├─ invite.js          # /A
+│  │  ├─ remove.js          # /R
+│  │  └─ hold.js            # /HOLD
+│  │
+│  ├─ interactions/
+│  │  ├─ buttons.js
+│  │  └─ menus.js
+│  │
+│  └─ utils/
+│     ├─ permissions.js
+│     ├─ holdManager.js
+│     └─ teamManager.js
+│
+├─ .env
+├─ package.json
+└─ README.md
